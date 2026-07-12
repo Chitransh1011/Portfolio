@@ -1,159 +1,122 @@
 import React from 'react';
-import { ExternalLink, Github, Code, Users, PlayCircle, ShoppingCart, MessageCircle,Send } from 'lucide-react';
+import { Bot, ExternalLink, Github, MessageCircle, Plane, Users } from 'lucide-react';
+
+type Project = {
+  title: string;
+  description: string;
+  tech: string[];
+  icon: React.ReactNode;
+  type: string;
+  gradient: string;
+  features: string[];
+  github: string;
+  demo?: string;
+};
 
 const Projects = () => {
-  const projects = [
+  const projects: Project[] = [
+    {
+      title: 'Multi-Agent Software Engineering Assistant',
+      description: 'An AI engineering assistant that coordinates planner, research, coding, and review agents through LangGraph shared-state workflows. Built for context-aware software tasks with retrieval, code generation, and quality validation.',
+      tech: ['FastAPI', 'LangGraph', 'PostgreSQL', 'ChromaDB', 'RAG', 'Docker'],
+      icon: <Bot size={32} className="text-white" />,
+      type: 'AI Backend',
+      gradient: 'from-cyan-600 to-teal-500',
+      features: ['Planner, research, coding, and review agents', 'RAG over 200+ pages of technical docs', 'PostgreSQL-backed state persistence', '40% lower average response latency'],
+      github: 'https://github.com/Chitransh1011/Multi_Agent_Software_Engineering_Assistant'
+    },
     {
       title: 'DevTinder',
-      description: 'A full-stack dating application for developers with real-time matching, profile management, and messaging features. Built with comprehensive authentication and user interaction systems.',
-      tech: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Socket.io', 'JWT'],
-      icon: <Users size={32} className="text-pink-600" />,
+      description: 'A full-stack social platform for developers with real-time messaging, profile discovery, subscription payments, secure auth, and production deployments across Vercel and Render.',
+      tech: ['React.js', 'Node.js', 'MongoDB', 'Socket.IO', 'JWT', 'Render'],
+      icon: <Users size={32} className="text-white" />,
       type: 'Full Stack',
       gradient: 'from-pink-500 to-rose-500',
-      features: ['Real-time messaging', 'Profile matching algorithm', 'User authentication', 'Responsive design'],
-      github: "https://github.com/Chitransh1011/DEV_TINDER_UI",
-      demo: "https://dev-tinder-ui-kappa.vercel.app/"
-    },
-    {
-      title: 'YouTube UI Clone',
-      description: 'A pixel-perfect recreation of YouTube\'s user interface with responsive design, video thumbnails, and interactive components. Demonstrates advanced frontend skills and attention to detail.',
-      tech: ['React.js', 'CSS3', 'JavaScript', 'Responsive Design'],
-      icon: <PlayCircle size={32} className="text-red-600" />,
-      type: 'Frontend',
-      gradient: 'from-red-500 to-red-600',
-      features: ['Responsive layout', 'Video thumbnails', 'Navigation sidebar', 'Search functionality'],
-      github: "https://github.com/Chitransh1011/MY_YOUTUBE"
-    },
-    {
-      title: 'Food Platform',
-      description: 'Modern food delivery platform frontend with intuitive user experience, restaurant listings, menu browsing, and cart functionality. Focus on clean design and smooth interactions.',
-      tech: ['React.js', 'Tailwind CSS', 'JavaScript', 'Local Storage'],
-      icon: <ShoppingCart size={32} className="text-orange-600" />,
-      type: 'Frontend',
-      gradient: 'from-orange-500 to-yellow-500',
-      features: ['Restaurant listings', 'Menu management', 'Shopping cart', 'Order tracking'],
-      github: "https://github.com/Chitransh1011/Food_platform_UI"
-    },
-    {
-      title: 'Twitter Backend',
-      description: 'Robust backend API for a Twitter-like social media platform with user management, tweet operations, and follow/unfollow functionality. Includes comprehensive error handling and security.',
-      tech: ['Node.js', 'Express.js', 'MongoDB', 'JWT', 'Bcrypt'],
-      icon: <MessageCircle size={32} className="text-blue-600" />,
-      type: 'Backend',
-      gradient: 'from-blue-500 to-cyan-500',
-      features: ['User authentication', 'Tweet CRUD operations', 'Follow system', 'API security'],
-      github: "https://github.com/Chitransh1011/TWITTER_DEV"
+      features: ['Real-time chat with Socket.IO', 'JWT auth and role-based access', 'Pagination and optimized queries', 'CI-based production deployment'],
+      github: 'https://github.com/Chitransh1011/DEV_TINDER',
+      demo: 'https://dev-tinder-ui-kappa.vercel.app/'
     },
     {
       title: 'Flights Service Backend',
-      description:
-        'Microservices-based flight management backend system handling 100K+ flight records with high scalability and performance. Includes airport, airplane, city, and flight CRUD operations with secure JWT authentication and inter-service communication via RabbitMQ.',
-      tech: ['Node.js', 'Express.js', 'Sequelize ORM', 'MySQL', 'JWT', 'RabbitMQ', 'Gmail SMTP'],
-      icon: <Send size={32} className="text-indigo-600" />,
+      description: 'A microservices-based flight management backend with API gateway patterns, role-based access, RabbitMQ-powered reminders, and optimized relational queries for large flight datasets.',
+      tech: ['Node.js', 'Express.js', 'Sequelize', 'MySQL', 'RabbitMQ', 'JWT'],
+      icon: <Plane size={32} className="text-white" />,
       type: 'Backend',
-      gradient: 'from-indigo-500 to-purple-500',
-      features: [
-        'Microservices architecture',
-        'Flight, airport, and city CRUD operations',
-        'JWT-based authentication & role-based access control',
-        'API Gateway for optimized inter-service communication',
-        'Automated email reminders via RabbitMQ and Gmail SMTP',
-        'Optimized DB queries and indexing for 40% faster responses'
-      ],
-      github: "https://github.com/Chitransh1011/FlightsAndSearchService"
-    }
+      gradient: 'from-indigo-500 to-violet-500',
+      features: ['Microservices architecture', 'Flight, airport, and city CRUD APIs', 'RabbitMQ email reminders', '40% faster indexed query responses'],
+      github: 'https://github.com/Chitransh1011/FlightsAndSearchService'
+    },
+    {
+      title: 'Twitter Backend',
+      description: 'A secure backend API for a Twitter-like social product with user authentication, tweet operations, follow relationships, validation, and defensive error handling.',
+      tech: ['Node.js', 'Express.js', 'MongoDB', 'JWT', 'Bcrypt'],
+      icon: <MessageCircle size={32} className="text-white" />,
+      type: 'Backend API',
+      gradient: 'from-blue-500 to-cyan-500',
+      features: ['User authentication', 'Tweet CRUD operations', 'Follow system', 'API security and validation'],
+      github: 'https://github.com/Chitransh1011/TWITTER_DEV'
 
+    }
   ];
 
   return (
-    <section id="projects" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Featured Projects</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A showcase of my development projects demonstrating proficiency across the full technology stack.
+    <section id="projects" className="bg-white py-20 dark:bg-slate-950">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-400">Projects</p>
+          <h2 className="mt-3 text-4xl font-bold text-slate-950 lg:text-5xl dark:text-white">Selected work that proves backend depth</h2>
+          <p className="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
+            Projects are ordered to show the strongest recruiter signal first: AI orchestration, scalable APIs, real-time systems, and secure backend design.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group"
-            >
-              <div className={`bg-gradient-to-r ${project.gradient} p-6`}>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3">
-                    {project.icon}
-                  </div>
-                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm font-medium">
-                    {project.type}
-                  </span>
+        <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {projects.map((project) => (
+            <article key={project.title} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900">
+              <div className={`bg-gradient-to-r ${project.gradient} p-6 text-white`}>
+                <div className="mb-5 flex items-center justify-between gap-4">
+                  <div className="rounded-xl bg-white/20 p-3 backdrop-blur-sm">{project.icon}</div>
+                  <span className="rounded-full bg-white/20 px-3 py-1 text-sm font-bold backdrop-blur-sm">{project.type}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
+                <h3 className="text-2xl font-bold">{project.title}</h3>
               </div>
 
               <div className="p-6">
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  {project.description}
-                </p>
+                <p className="leading-7 text-slate-600 dark:text-slate-300">{project.description}</p>
 
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">Key Features</h4>
-                  <div className="grid grid-cols-2 gap-2">
-                    {project.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center text-sm text-gray-600">
-                        <div className={`w-2 h-2 bg-gradient-to-r ${project.gradient} rounded-full mr-2`}></div>
+                <div className="mt-6">
+                  <h4 className="text-sm font-bold uppercase tracking-wide text-slate-950 dark:text-white">Impact and features</h4>
+                  <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                    {project.features.map((feature) => (
+                      <div key={feature} className="flex items-start gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+                        <span className={`mt-2 h-2 w-2 shrink-0 rounded-full bg-gradient-to-r ${project.gradient}`} />
                         {feature}
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">Technologies Used</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <span key={tech} className="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">{tech}</span>
+                  ))}
                 </div>
 
-                <div className="flex space-x-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center space-x-2 bg-gradient-to-r ${project.gradient} text-white px-6 py-3 rounded-lg hover:scale-105 transition-transform duration-200 font-medium`}
-                  >
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 rounded-lg bg-gradient-to-r ${project.gradient} px-5 py-3 font-semibold text-white transition hover:scale-105`}>
                     <Github size={16} />
-                    <span>View Code</span>
+                    View Code
                   </a>
-
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 border-2 border-gray-300 hover:border-gray-400 text-gray-700 px-6 py-3 rounded-lg transition-colors font-medium"
-                  >
-                    <ExternalLink size={16} />
-                    <span>Live Demo</span>
-                  </a>
+                  {project.demo && (
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-5 py-3 font-semibold text-slate-700 transition hover:border-cyan-500 hover:text-cyan-600 dark:border-slate-700 dark:text-slate-200 dark:hover:border-cyan-400 dark:hover:text-cyan-400">
+                      <ExternalLink size={16} />
+                      Live Demo
+                    </a>
+                  )}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          {/* <button className="bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105">
-            View All Projects
-          </button> */}
         </div>
       </div>
     </section>

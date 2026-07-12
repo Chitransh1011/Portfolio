@@ -2,101 +2,65 @@ import React from 'react';
 import { Briefcase, Calendar, MapPin, TrendingUp } from 'lucide-react';
 
 const Experience = () => {
+  const achievements = [
+    'Architected scalable backend workflows with LangGraph to coordinate multiple autonomous services.',
+    'Designed an orchestration layer for Research, Retrieval, Scenario, Stress, and Writer services, improving throughput by 35%.',
+    'Implemented concurrent ingestion and retrieval pipelines for large PDF datasets with context-aware querying.',
+    'Integrated PostgreSQL for transactional storage, metadata indexing, and optimized read-heavy query paths.',
+    'Reduced end-to-end processing latency by 40% using asynchronous execution and parallel task scheduling.',
+    'Refactored workflows into reusable graph components, improving maintainability and extensibility by 30%.'
+  ];
+
+  const tools = ['Python', 'FastAPI', 'LangGraph', 'LangChain', 'RAG', 'PostgreSQL', 'Async Workflows', 'Backend Architecture'];
+
   return (
-    <section id="experience" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Professional Experience</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Building real-world experience in the fintech industry while contributing to innovative solutions.
+    <section id="experience" className="bg-slate-50 py-20 dark:bg-slate-900">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-400">Experience</p>
+          <h2 className="mt-3 text-4xl font-bold text-slate-950 lg:text-5xl dark:text-white">Professional backend experience</h2>
+          <p className="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
+            Real startup engineering work focused on AI workflow orchestration, retrieval systems, database-backed APIs, and performance improvement.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
-            <div className="bg-gradient-to-r from-blue-600 to-teal-600 p-8 text-white">
-              <div className="flex items-center mb-4">
-                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 mr-4">
+        <div className="mx-auto mt-14 max-w-5xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl dark:border-slate-800 dark:bg-slate-950">
+          <div className="bg-gradient-to-r from-cyan-600 to-teal-500 p-8 text-white">
+            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+              <div className="flex items-center gap-4">
+                <div className="rounded-xl bg-white/20 p-3 backdrop-blur-sm">
                   <Briefcase size={32} />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">Software Development Intern</h3>
-                  <p className="text-blue-100 text-lg">TaxTrack Startup</p>
+                  <h3 className="text-2xl font-bold">Backend Developer Intern</h3>
+                  <p className="text-lg text-cyan-50">Optimagine - US-based Startup</p>
                 </div>
               </div>
-              
-              <div className="flex flex-wrap gap-4 text-blue-100">
-                <div className="flex items-center">
-                  <Calendar size={16} className="mr-2" />
-                  <span>Current Position</span>
-                </div>
-                <div className="flex items-center">
-                  <MapPin size={16} className="mr-2" />
-                  <span>Remote</span>
-                </div>
-                <div className="flex items-center">
-                  <TrendingUp size={16} className="mr-2" />
-                  <span>FinTech Industry</span>
-                </div>
+              <div className="flex flex-wrap gap-3 text-sm font-semibold text-cyan-50">
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-2"><Calendar size={16} /> Nov 2025 - Mar 2026</span>
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-2"><MapPin size={16} /> Remote</span>
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-2"><TrendingUp size={16} /> AI Systems</span>
               </div>
             </div>
+          </div>
 
-            <div className="p-8">
-              <h4 className="text-xl font-bold text-gray-900 mb-4">Key Responsibilities & Achievements</h4>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <p className="text-gray-700">Developing scalable web applications using MERN stack technologies</p>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <p className="text-gray-700">Contributing to tax calculation and financial management features</p>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <p className="text-gray-700">Collaborating with senior developers on code reviews and best practices</p>
-                  </div>
+          <div className="p-8">
+            <h4 className="text-xl font-bold text-slate-950 dark:text-white">Key outcomes</h4>
+            <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2">
+              {achievements.map((achievement) => (
+                <div key={achievement} className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 dark:bg-slate-900">
+                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-cyan-500" />
+                  <p className="leading-7 text-slate-700 dark:text-slate-300">{achievement}</p>
                 </div>
-                
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <p className="text-gray-700">Implementing responsive UI components with React and Tailwind CSS</p>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <p className="text-gray-700">Building RESTful APIs with Node.js and Express.js</p>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <p className="text-gray-700">Working with MongoDB for data storage and management</p>
-                  </div>
-                </div>
-              </div>
+              ))}
+            </div>
 
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6">
-                <h5 className="text-lg font-bold text-gray-900 mb-4">Technologies & Tools Used</h5>
-                <div className="flex flex-wrap gap-2">
-                  {['React.js', 'Node.js', 'MongoDB', 'Express.js', 'JavaScript', 'Git', 'Agile/Scrum'].map((tech, index) => (
-                    <span
-                      key={index}
-                      className="bg-white text-gray-700 px-3 py-1 rounded-full text-sm font-medium shadow-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-8 p-6 bg-blue-50 rounded-xl border border-blue-200">
-                <h5 className="text-lg font-bold text-blue-900 mb-2">Key Learning Outcomes</h5>
-                <p className="text-blue-800 leading-relaxed">
-                  This internship has provided invaluable hands-on experience in professional software development, 
-                  from working in collaborative team environments to understanding the complexities of fintech applications. 
-                  I've gained practical knowledge in enterprise-level code organization, deployment processes, and agile development methodologies.
-                </p>
+            <div className="mt-8 rounded-2xl bg-slate-50 p-6 dark:bg-slate-900">
+              <h5 className="text-lg font-bold text-slate-950 dark:text-white">Tools and systems used</h5>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {tools.map((tool) => (
+                  <span key={tool} className="rounded-full bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm dark:bg-slate-950 dark:text-slate-300">{tool}</span>
+                ))}
               </div>
             </div>
           </div>

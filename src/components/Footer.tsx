@@ -1,87 +1,57 @@
 import React from 'react';
-import { Code, Heart, Github, Linkedin, Mail } from 'lucide-react';
+import { Bot, Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const links = ['About', 'Skills', 'Projects', 'Experience', 'Contact'];
+  const tech = ['LangGraph', 'FastAPI', 'PostgreSQL', 'React.js', 'Node.js'];
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="bg-gradient-to-r from-blue-500 to-teal-500 p-2 rounded-lg">
-                <Code size={24} className="text-white" />
+    <footer className="bg-slate-950 py-12 text-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+          <div className="md:col-span-2">
+            <div className="mb-4 flex items-center gap-3">
+              <div className="rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 p-2">
+                <Bot size={24} />
               </div>
-              <span className="text-2xl font-bold">MERN Developer</span>
+              <div>
+                <span className="block text-2xl font-bold">Chitransh Prasanna</span>
+                <span className="text-sm font-semibold text-cyan-300">Backend & AI Systems Developer</span>
+              </div>
             </div>
-            <p className="text-gray-400 leading-relaxed max-w-md">
-              Passionate full-stack developer creating innovative web applications with modern technologies. 
-              Always eager to learn and take on new challenges.
+            <p className="max-w-md leading-7 text-slate-400">
+              Building reliable backend systems, AI agent workflows, retrieval pipelines, and full-stack products with a strong computer science foundation.
             </p>
-            <div className="flex space-x-4 mt-6">
-              <a
-                href="https://github.com/Chitransh1011"
-                className="bg-gray-800 hover:bg-gray-700 p-2 rounded-lg transition-colors duration-200"
-              >
-                <Github size={20} className="text-gray-400 hover:text-white" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/chitransh-prasanna-3b86b6280/"
-                className="bg-gray-800 hover:bg-gray-700 p-2 rounded-lg transition-colors duration-200"
-              >
-                <Linkedin size={20} className="text-gray-400 hover:text-white" />
-              </a>
-              <a
-                href="mailto:chitranshprasanna6666@gmail.com"
-                className="bg-gray-800 hover:bg-gray-700 p-2 rounded-lg transition-colors duration-200"
-              >
-                <Mail size={20} className="text-gray-400 hover:text-white" />
-              </a>
+            <div className="mt-6 flex gap-3">
+              <a href="https://github.com/Chitransh1011" target="_blank" rel="noopener noreferrer" className="rounded-lg bg-slate-900 p-2 text-slate-300 transition hover:bg-slate-800 hover:text-white" aria-label="GitHub"><Github size={20} /></a>
+              <a href="https://www.linkedin.com/in/chitransh-prasanna-3b86b6280/" target="_blank" rel="noopener noreferrer" className="rounded-lg bg-slate-900 p-2 text-slate-300 transition hover:bg-slate-800 hover:text-white" aria-label="LinkedIn"><Linkedin size={20} /></a>
+              <a href="mailto:chitranshprasanna6666@gmail.com" className="rounded-lg bg-slate-900 p-2 text-slate-300 transition hover:bg-slate-800 hover:text-white" aria-label="Email"><Mail size={20} /></a>
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="mb-4 text-lg font-semibold">Quick Links</h4>
             <div className="space-y-2">
-              {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((link) => (
-                <button
-                  key={link}
-                  onClick={() => document.getElementById(link.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
-                  className="block text-gray-400 hover:text-white transition-colors duration-200"
-                >
+              {links.map((link) => (
+                <button key={link} onClick={() => document.getElementById(link.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })} className="block text-slate-400 transition hover:text-white">
                   {link}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Technologies */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Technologies</h4>
-            <div className="space-y-2 text-gray-400">
-              <div>MongoDB</div>
-              <div>Express.js</div>
-              <div>React.js</div>
-              <div>Node.js</div>
-              <div>JavaScript</div>
+            <h4 className="mb-4 text-lg font-semibold">Core Stack</h4>
+            <div className="space-y-2 text-slate-400">
+              {tech.map((item) => <div key={item}>{item}</div>)}
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-1 text-gray-400 mb-4 md:mb-0">
-              <span>Made by Chitransh</span>
-              
-              <span>using React & Tailwind CSS</span>
-            </div>
-            <div className="text-gray-400">
-              <span>&copy; {currentYear} MERN Stack Developer. All rights reserved.</span>
-            </div>
-          </div>
+        <div className="mt-12 flex flex-col items-center justify-between border-t border-slate-800 pt-8 text-slate-400 md:flex-row">
+          <span>Made by Chitransh using React and Tailwind CSS.</span>
+          <span className="mt-3 md:mt-0">&copy; {currentYear} Chitransh Prasanna. All rights reserved.</span>
         </div>
       </div>
     </footer>
