@@ -5,7 +5,7 @@ const About = () => {
   const facts = [
     { label: 'Education', value: 'B.Tech CSE, IIIT Ranchi' },
     { label: 'Graduation', value: '2027' },
-    { label: 'CGPA', value: '8.79/10' },
+    { label: 'CGPA', value: '8.75/10' },
     { label: 'Focus', value: 'Backend + AI Systems' }
   ];
 

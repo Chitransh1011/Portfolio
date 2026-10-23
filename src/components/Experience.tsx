@@ -33,7 +33,7 @@ const Experience = () => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold">Backend Developer Intern</h3>
-                  <p className="text-lg text-cyan-50">Optimagine - US-based Startup</p>
+                  <p className="text-lg text-cyan-50">OptimagineAI - US-based Startup</p>
                 </div>
               </div>
               <div className="flex flex-wrap gap-3 text-sm font-semibold text-cyan-50">

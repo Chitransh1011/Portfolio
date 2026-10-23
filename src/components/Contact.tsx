@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { Github, Linkedin, Mail, MapPin, Phone, Send } from 'lucide-react';
 
 const Contact = () => {
@@ -12,21 +13,25 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === 'sending') return;
     setStatus('sending');
 
     try {
-      const response = await fetch('https://formspree.io/f/xanlkzyn', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID?.trim();
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID?.trim();
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.trim();
 
-      if (response.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setStatus('error');
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('Missing EmailJS environment configuration.');
       }
+
+      await emailjs.send(serviceId, templateId, {
+        ...formData,
+        reply_to: formData.email
+      }, { publicKey });
+
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error('Error submitting form:', error);
       setStatus('error');
@@ -76,7 +81,7 @@ const Contact = () => {
                 <span className="rounded-lg bg-amber-100 p-3 text-amber-700 dark:bg-amber-950 dark:text-amber-300"><MapPin size={22} /></span>
                 <div>
                   <h4 className="font-bold text-slate-950 dark:text-white">Location</h4>
-                  <p className="text-slate-600 dark:text-slate-400">Remote-friendly, based in India</p>
+                  <p className="text-slate-600 dark:text-slate-400">Based in India · Open to remote work and relocation</p>
                 </div>
               </div>
             </div>
